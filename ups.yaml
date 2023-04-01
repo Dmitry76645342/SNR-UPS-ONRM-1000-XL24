@@ -1,0 +1,362 @@
+zabbix_export:
+  version: '5.4'
+  date: '2023-04-01T10:39:05Z'
+  groups:
+    -
+      uuid: a240c821edda45c1a81faa6972fe5b1e
+      name: UPS
+  templates:
+    -
+      uuid: a50ccd7a8c2045509d72d62d8c013181
+      template: 'UPS SNR Element'
+      name: 'UPS SNR Element'
+      groups:
+        -
+          name: UPS
+      items:
+        -
+          uuid: e9b320b808104e20bb3290c1d3f3d99e
+          name: 'Battery charge'
+          type: TRAP
+          key: battery.charge
+          delay: '0'
+          allowed_hosts: 127.0.0.1
+          units: '%'
+          triggers:
+            -
+              uuid: 1a626f3d54304db7abf4c3be9c6a3ccd
+              expression: 'change(/UPS SNR Element/battery.charge)>0'
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: 'change(/UPS SNR Element/battery.charge)<0'
+              name: 'Battery is running low'
+              priority: HIGH
+        -
+          uuid: 193f1eedbd6841a5a473b908868fe128
+          name: 'Battery voltage'
+          type: TRAP
+          key: battery.voltage
+          delay: '0'
+          value_type: FLOAT
+          allowed_hosts: 127.0.0.1
+          units: V
+        -
+          uuid: 975a11c4de6e4749b56e1013c5cdff9a
+          name: 'Battery voltage high'
+          type: TRAP
+          key: battery.voltage.high
+          delay: '0'
+          value_type: FLOAT
+          allowed_hosts: 127.0.0.1
+          units: V
+        -
+          uuid: e72bb143e0b3423e98092e64495d40d5
+          name: 'Battery voltage low'
+          type: TRAP
+          key: battery.voltage.low
+          delay: '0'
+          value_type: FLOAT
+          allowed_hosts: 127.0.0.1
+          units: V
+        -
+          uuid: 8cf4d4edc7584510bb44c3894f89d23f
+          name: 'Battery voltage nominal'
+          type: TRAP
+          key: battery.voltage.nominal
+          delay: '0'
+          value_type: FLOAT
+          allowed_hosts: 127.0.0.1
+          units: V
+        -
+          uuid: 97202521253d4968b6ba686a6166534a
+          name: 'Device type'
+          type: TRAP
+          key: device.type
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: c31ee2ce6bd94f0a8f1ad1920981a43e
+          name: 'Driver name'
+          type: TRAP
+          key: driver.name
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: 4279eb484d954f91a730fe5009b803d0
+          name: 'Driver parameter langid_fix'
+          type: TRAP
+          key: driver.parameter.langid_fix
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: 7054ca554b7945929b59a83d005535f3
+          name: 'Driver parameter pollinterval'
+          type: TRAP
+          key: driver.parameter.pollinterval
+          delay: '0'
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: 66c999bb1f664a8781e1178b76b3380a
+          name: 'Driver parameter port'
+          type: TRAP
+          key: driver.parameter.port
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: e38c00f7a1b849b089abfa0660f55a60
+          name: 'Driver parameter productid'
+          type: TRAP
+          key: driver.parameter.productid
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: 3392fe33a9c642d08e579fc5d72aab75
+          name: 'Driver parameter synchronous'
+          type: TRAP
+          key: driver.parameter.synchronous
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: 1e03313d835b45be81f93fc29132ebcf
+          name: 'Driver parameter vendorid'
+          type: TRAP
+          key: driver.parameter.vendorid
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: d683aad7fcb446f7a06f0a2d439bb6d1
+          name: 'Driver version'
+          type: TRAP
+          key: driver.version
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: e4ed1381978745349028834f386e6fa8
+          name: 'Driver version internal'
+          type: TRAP
+          key: driver.version.internal
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: b131c9b10ec542a3b4ae24ab4b52b210
+          name: 'Driver version usb'
+          type: TRAP
+          key: driver.version.usb
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: b5f77813ad0e423c84684644c115365d
+          name: 'Input current nominal'
+          type: TRAP
+          key: input.current.nominal
+          delay: '0'
+          value_type: FLOAT
+          allowed_hosts: 127.0.0.1
+          units: V
+        -
+          uuid: ebd3ed67c340490cb0d9f80539ef98d1
+          name: Inputfrequency
+          type: TRAP
+          key: input.frequency
+          delay: '0'
+          value_type: FLOAT
+          allowed_hosts: 127.0.0.1
+          units: Hz
+        -
+          uuid: 84cb175d0bc94535b640a4080cf84e2f
+          name: 'Input frequency nominal'
+          type: TRAP
+          key: input.frequency.nominal
+          delay: '0'
+          value_type: FLOAT
+          allowed_hosts: 127.0.0.1
+          units: Hz
+        -
+          uuid: e06f898b21e442b098af6cdafa2317e6
+          name: 'Input voltage'
+          type: TRAP
+          key: input.voltage
+          delay: '0'
+          value_type: FLOAT
+          allowed_hosts: 127.0.0.1
+          units: V
+          triggers:
+            -
+              uuid: 21c05c19819c40378d8caf25b38562f0
+              expression: 'last(/UPS SNR Element/input.voltage,#1)=0'
+              name: 'No input voltage'
+              priority: HIGH
+        -
+          uuid: 56d95df3a94d4263b12ae1a48ba80f5f
+          name: 'Input voltage fault'
+          type: TRAP
+          key: input.voltage.fault
+          delay: '0'
+          value_type: FLOAT
+          allowed_hosts: 127.0.0.1
+          units: V
+        -
+          uuid: 53d98df1c2f84b4f8d86210db65d6da5
+          name: 'Input voltage nominal'
+          type: TRAP
+          key: input.voltage.nominal
+          delay: '0'
+          value_type: FLOAT
+          allowed_hosts: 127.0.0.1
+          units: V
+        -
+          uuid: 6f8613d1a84440c0b5b0bb1d5f5b552d
+          name: 'Output voltage'
+          type: TRAP
+          key: output.voltage
+          delay: '0'
+          value_type: FLOAT
+          allowed_hosts: 127.0.0.1
+          units: V
+        -
+          uuid: 77cacde80ab0459596a25189cb6639ad
+          name: 'Ups beeper status'
+          type: TRAP
+          key: ups.beeper.status
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: 66e431c1d4734e8db2fbeba062ce06d4
+          name: 'Ups delay shutdown'
+          type: TRAP
+          key: ups.delay.shutdown
+          delay: '0'
+          allowed_hosts: 127.0.0.1
+          units: s
+        -
+          uuid: f8c77bef254241d884feedd40d6855d3
+          name: 'Ups delay start'
+          type: TRAP
+          key: ups.delay.start
+          delay: '0'
+          allowed_hosts: 127.0.0.1
+          units: s
+        -
+          uuid: 6f6c9f119a4840019a910938092d1db6
+          name: 'Ups firmware'
+          type: TRAP
+          key: ups.firmware
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: 1d3bd6ba5bc0406dbfe96a5217e64038
+          name: 'Ups load'
+          type: TRAP
+          key: ups.load
+          delay: '0'
+          allowed_hosts: 127.0.0.1
+          units: '%'
+          triggers:
+            -
+              uuid: c1cb5c4fc03f4c88b06f00037ed3a59c
+              expression: 'change(/UPS SNR Element/ups.load)>=2'
+              name: 'Amperage change >~2'
+              priority: AVERAGE
+        -
+          uuid: 37eb0baf7eab407b837b2a3f3af05a12
+          name: 'Ups productid'
+          type: TRAP
+          key: ups.productid
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: c6ca8a46c18d4e988c5f722a25d3f7ac
+          name: ups.status
+          type: TRAP
+          key: ups.status
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: 7055e2f45f5a4454b4fbec56796ed620
+          name: 'Ups temperature'
+          type: TRAP
+          key: ups.temperature
+          delay: '0'
+          value_type: FLOAT
+          allowed_hosts: 127.0.0.1
+          units: C
+          triggers:
+            -
+              uuid: 9cd59bb63e21434ea6338e4e9e650048
+              expression: 'last(/UPS SNR Element/ups.temperature,#1)>=30'
+              name: 'Temperature over 30°C'
+              priority: AVERAGE
+        -
+          uuid: caf82286b34e4e2194c9d6506e2d67ab
+          name: 'Ups type'
+          type: TRAP
+          key: ups.type
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+        -
+          uuid: bec568bdcf524ee1aa390f403e995c8b
+          name: 'Ups vendorid'
+          type: TRAP
+          key: ups.vendorid
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+          allowed_hosts: 127.0.0.1
+  graphs:
+    -
+      uuid: c13960f9afeb4e809506e729acd448ca
+      name: 'UPS Monitoring'
+      graph_items:
+        -
+          sortorder: '1'
+          color: 199C0D
+          item:
+            host: 'UPS SNR Element'
+            key: battery.charge
+        -
+          sortorder: '2'
+          color: F63100
+          item:
+            host: 'UPS SNR Element'
+            key: input.voltage
+        -
+          sortorder: '3'
+          color: 2774A4
+          item:
+            host: 'UPS SNR Element'
+            key: ups.load
+        -
+          sortorder: '4'
+          color: F7941D
+          item:
+            host: 'UPS SNR Element'
+            key: ups.temperature
